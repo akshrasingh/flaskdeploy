@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title> 
+    <style>
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction: {{ prediction }}</h1>
+    
+    <h2>Random Frames from the Predicted Video:</h2>
+    {% for frame in predicted_frames %}
+        <img src="data:image/jpeg;base64,{{ frame }}" alt="Frame">
+    {% endfor %}
+    <h2>Generated Prediction Plot:</h2>
+    <img src="{{ url_for('static', filename=output_image_path) }}" alt="Prediction Plot">
+</body>
+</html>

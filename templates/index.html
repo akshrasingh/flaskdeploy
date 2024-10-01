@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CivGuard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <style>
+    /* Add custom CSS for background image */
+    body {
+      background-image: url("https://www.emsnow.com/wp-content/uploads/2021/02/AdobeStock_283199859-1200x640.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: transparent !important;
+    }
+    .navbar-brand {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+    .navbar-nav .nav-link {
+      color: rgb(255, 255, 255) !important;
+    }
+    .navbar-toggler {
+      border-color: rgb(41, 1, 1);
+    }
+    /* Adjustments for search button and toggled navbar items */
+    .navbar-toggler[aria-expanded="true"] .navbar-nav .nav-link,
+    .navbar-toggler[aria-expanded="true"] .navbar-nav .nav-item {
+      background-color: #0a2554;
+      color: white !important;
+    }
+    .navbar-collapse {
+      justify-content: flex-end;
+    }
+    .form-inline {
+      margin-right: 10px;
+    }
+    .form-inline .btn {
+      background-color: red;
+      border-color: red;
+      color: white;
+    }
+    /* Custom styles for upload input */
+    #videoUpload {
+      display: none;
+    }
+    .upload-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .upload-btn:hover {
+      background-color: #45a049;
+    }
+    .upload-container {
+      text-align: center;
+      margin-top: 240px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-xl bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Anomaly Detector</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/models">Models</a>
+          </li>
+          <li class="nav-item dropdown">
+            <form class="form-inline" role="search">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</nav>
+<div class="container">
+  <h1 style="color: rgb(255, 255, 255); text-align: center; margin-top: 80px; text-shadow: 2px 2px rgb(102, 0, 255);border-radius: 8px;background: rgba(255, 22, 22, 0.306);border: 1px solid rgb(166, 14, 14);">CivGuard</h1>
+  <div class="upload-container">
+    <form id="predictForm" action="/upload" method="post" enctype="multipart/form-data">
+      <label for="videoUpload" class="upload-btn">Upload Video</label>
+      <input type="file" name="video" id="videoUpload" accept="video/*" />
+      <button type="submit" class="btn btn-success" style="display: none;">Predict</button>
+    </form>
+  </div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  document.getElementById('videoUpload').addEventListener('change', function() {
+    document.querySelector('.btn.btn-success').style.display = 'inline-block';
+  });
+</script>
+</body>
+</html>
