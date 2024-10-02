@@ -1,13 +1,11 @@
 import os
-import tempfile
-import imghdr
+
 import base64
 import random
 import matplotlib.pyplot as plt  # Add matplotlib import
 from flask import Flask, render_template, request, redirect, flash, send_from_directory
 from werkzeug.utils import secure_filename
 from keras.models import load_model
-from keras.preprocessing import image
 import numpy as np
 import cv2
 from collections import deque
